@@ -4,7 +4,7 @@ import os
 
 csv_file = "responses.csv"
 
-st.title("NGS Analysis Website Feedback Survey")
+st.title("Feedback Survey")
 
 menu = st.sidebar.selectbox("Menu", ["Fill Survey", "View Responses"])
 
@@ -13,10 +13,6 @@ if menu == "Fill Survey":
 
     st.write("Please enter any issues or topics you would like to discuss.")
 
-    issues = st.text_area(
-        "Issues to discuss",
-        height=250
-    )
 
     if st.button("Submit"):
 
