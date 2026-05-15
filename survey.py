@@ -13,6 +13,10 @@ if menu == "Fill Survey":
 
     st.write("Please enter any issues or topics you would like to discuss.")
 
+    issues = st.text_area(
+        "",
+        height=250
+    )
 
     if st.button("Submit"):
 
