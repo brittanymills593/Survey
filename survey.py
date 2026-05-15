@@ -4,7 +4,7 @@ import os
 
 csv_file = "responses.csv"
 
-st.title("Feedback Survey")
+st.title("Feedback to discuss")
 
 menu = st.sidebar.selectbox("Menu", ["Fill Survey", "View Responses"])
 
