@@ -4,7 +4,7 @@ import os
 
 csv_file = "responses.csv"
 
-st.title("Feedback to discuss")
+st.title("Review of meetings")
 
 menu = st.sidebar.selectbox("Menu", ["Fill Survey", "View Responses"])
 
@@ -14,51 +14,64 @@ if menu == "Fill Survey":
     st.write("Please answer the following questions.")
 
     # Question 1
-    q1 = st.multiselect(
-        "1. What should the Monday and Friday morning meetings look like?",
-        [
-            "What we do currently works well",
-            "No meeting",
-            "Split into haemonc and solid",
-            "What we currently do without going through the rota"
-        ]
-    )
+    st.subheader("1. What should the Monday and Friday morning meetings look like?")
+
+    q1_1 = st.checkbox("What we do currently works well")
+    q1_2 = st.checkbox("No meeting")
+    q1_3 = st.checkbox("Split into haemonc and solid")
+    q1_4 = st.checkbox("What we currently do without going through the rota")
 
     q1_other = st.text_area("Other suggestions for Question 1")
 
     # Question 2
-    q2 = st.multiselect(
-        "2. What do we want included in the CS meeting?",
-        [
-            "The current structure is good",
-            "The overview of solid and haemonc is repetitive from individual meetings and could be removed",
-            "More feedback on projects going on within the department",
-            "Presentations on interesting cases"
-        ]
-    )
+    st.subheader("2. What do we want included in the CS meeting?")
+
+    q2_1 = st.checkbox("The current structure is good")
+    q2_2 = st.checkbox("The overview of solid and haemonc is repetitive from individual meetings and could be removed")
+    q2_3 = st.checkbox("More feedback on projects going on within the department")
+    q2_4 = st.checkbox("Presentations on interesting cases")
 
     q2_other = st.text_area("Other suggestions for Question 2")
 
     # Question 3
-    q3 = st.multiselect(
-        "3. How could our current appraisal process be improved?",
-        [
-            "More guidance and structure for goals",
-            "Mikel to attend",
-            "Feedback from colleagues to be included"
-        ]
-    )
+    st.subheader("3. How could our current appraisal process be improved?")
+
+    q3_1 = st.checkbox("More guidance and structure for goals")
+    q3_2 = st.checkbox("Mikel to attend")
+    q3_3 = st.checkbox("Feedback from colleagues to be included")
 
     q3_other = st.text_area("Other suggestions for Question 3")
 
     if st.button("Submit"):
 
         response = pd.DataFrame([{
-            "Morning Meetings": ", ".join(q1),
+            "Morning Meetings": ", ".join([
+                option for option, selected in {
+                    "What we do currently works well": q1_1,
+                    "No meeting": q1_2,
+                    "Split into haemonc and solid": q1_3,
+                    "What we currently do without going through the rota": q1_4
+                }.items() if selected
+            ]),
             "Morning Meetings Other": q1_other,
-            "CS Meeting": ", ".join(q2),
+
+            "CS Meeting": ", ".join([
+                option for option, selected in {
+                    "The current structure is good": q2_1,
+                    "The overview of solid and haemonc is repetitive from individual meetings and could be removed": q2_2,
+                    "More feedback on projects going on within the department": q2_3,
+                    "Presentations on interesting cases": q2_4
+                }.items() if selected
+            ]),
             "CS Meeting Other": q2_other,
-            "Appraisal Process": ", ".join(q3),
+
+            "Appraisal Process": ", ".join([
+                option for option, selected in {
+                    "More guidance and structure for goals": q3_1,
+                    "Mikel to attend": q3_2,
+                    "Feedback from colleagues to be included": q3_3
+                }.items() if selected
+            ]),
             "Appraisal Process Other": q3_other
         }])
 
@@ -68,7 +81,6 @@ if menu == "Fill Survey":
             response.to_csv(csv_file, index=False)
 
         st.success("Thank you! Your response has been saved.")
-
 
 # ---------------- ADMIN VIEW ----------------
 elif menu == "View Responses":
