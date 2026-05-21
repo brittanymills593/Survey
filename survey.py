@@ -14,7 +14,7 @@ if menu == "Fill Survey":
     st.write("Please answer the following questions.")
 
     # Question 1
-    q1 = st.radio(
+    q1 = st.multiselect(
         "1. What should the Monday and Friday morning meetings look like?",
         [
             "What we do currently works well",
@@ -27,7 +27,7 @@ if menu == "Fill Survey":
     q1_other = st.text_area("Other suggestions for Question 1")
 
     # Question 2
-    q2 = st.radio(
+    q2 = st.multiselect(
         "2. What do we want included in the CS meeting?",
         [
             "The current structure is good",
@@ -40,7 +40,7 @@ if menu == "Fill Survey":
     q2_other = st.text_area("Other suggestions for Question 2")
 
     # Question 3
-    q3 = st.radio(
+    q3 = st.multiselect(
         "3. How could our current appraisal process be improved?",
         [
             "More guidance and structure for goals",
@@ -54,11 +54,11 @@ if menu == "Fill Survey":
     if st.button("Submit"):
 
         response = pd.DataFrame([{
-            "Morning Meetings": q1,
+            "Morning Meetings": ", ".join(q1),
             "Morning Meetings Other": q1_other,
-            "CS Meeting": q2,
+            "CS Meeting": ", ".join(q2),
             "CS Meeting Other": q2_other,
-            "Appraisal Process": q3,
+            "Appraisal Process": ", ".join(q3),
             "Appraisal Process Other": q3_other
         }])
 
