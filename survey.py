@@ -78,12 +78,12 @@ if menu == "Fill Survey":
      #       "Appraisal Process Other": q3_other
      #   }])
 
-#        if os.path.exists(csv_file):
- #           response.to_csv(csv_file, mode='a', header=False, index=False)
-  #      else:
-   #         response.to_csv(csv_file, index=False)
+        if os.path.exists(csv_file):
+            response.to_csv(csv_file, mode='a', header=False, index=False)
+        else:
+            response.to_csv(csv_file, index=False)
 
-    #    st.success("Thank you! Your response has been saved.")
+        st.success("Thank you! Your response has been saved.")
 
 
 # ---------------- ADMIN VIEW ----------------
