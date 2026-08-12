@@ -17,11 +17,13 @@ if menu == "Fill Survey":
     st.subheader("1. What should the Monday and Friday morning meetings look like?")
 
     q1_1 = st.checkbox("What we do currently works well")
-    q1_2 = st.checkbox("No meeting")
-    q1_3 = st.checkbox("Split into haemonc and solid")
-    q1_4 = st.checkbox("What we currently do without going through the rota")
-
-    q1_other = st.text_area("Other suggestions for Question 1")
+    q1_2 = st.checkbox("Only one meeting - Friday")
+    q1_3 = st.checkbox("Only one meeting - Monday")
+    q1_4 = st.checkbox("Split into separate team meetings e.g. haemonc and solid")
+    q1_5 = st.checkbox("What we currently do without going through the rota")
+    q1_6 = st.checkbox("Other")
+    
+    q1_other = st.text_area("Other suggestions")
 
 
     # Question 2
