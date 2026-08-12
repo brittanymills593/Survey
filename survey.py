@@ -23,7 +23,7 @@ if menu == "Fill Survey":
     q1_5 = st.checkbox("What we currently do but with some changes to format")
     q1_6 = st.checkbox("Other (write below)")
     
-    q1_other = st.text_area("Other suggestions")
+    q1_other = st.text_area("Suggestions")
 
 
     # Question 2
