@@ -13,7 +13,7 @@ menu = st.sidebar.selectbox("Menu", ["Fill Survey", "View Responses"])
 
 if menu == "Fill Survey":
 
-    st.write("Please answer the following questions.")
+#    st.write("Please answer the following questions.")
 
     # Question 1
     st.subheader(
