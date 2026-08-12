@@ -20,7 +20,7 @@ if menu == "Fill Survey":
     q1_2 = st.checkbox("Only one meeting - Friday")
     q1_3 = st.checkbox("Only one meeting - Monday")
     q1_4 = st.checkbox("Split into separate team meetings e.g. haemonc and solid")
-    q1_5 = st.checkbox("What we currently do but with some changes to format")
+    q1_5 = st.checkbox("What we currently do but with some changes to format (suggest below)")
     q1_6 = st.checkbox("Other (write below)")
     
     q1_other = st.text_area("Suggestions")
